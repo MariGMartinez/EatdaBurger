@@ -1,6 +1,6 @@
-import { builtinModules } from "module";
 
-var connection = require("connection.js");
+
+var connection = require("./connection.js");
 // Node import var con = require("connection");
 function printQuestionMarks(num) {
     var arr = []
@@ -8,7 +8,7 @@ function printQuestionMarks(num) {
         arr.push("?")
 
     }
-    return arr.tostring()
+    return arr
 }
 
 function objecttosql(ob) {
@@ -52,10 +52,11 @@ var orm = {
     updateOne: function (table, objectValues, condition, cb) {
         var query = "UPDATE " + table
         query += " SET "
-        query += objecttosql(objectValues)
+        query += "devoured = true "
         query += " WHERE "
         query += condition
-        connection.query (query, function (err,result){
+        console.log ("query",query)
+        connection.query (query, function (err,results){
             if (err){
                 throw err
             }

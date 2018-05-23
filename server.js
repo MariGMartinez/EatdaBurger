@@ -8,6 +8,9 @@ var expressHandlebars = require("express-handlebars")
 app.engine ("handlebars",expressHandlebars({defaultLayout:'main'}))
 app.set ('view engine','handlebars')
 //insert routes here//
+var routes = require("./controllers/burgers_controllers")
+app.use(routes)
+
 
 app.listen(port, function(){
     console.log ('listening at port:' + port)

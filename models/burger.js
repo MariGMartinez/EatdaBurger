@@ -21,3 +21,5 @@ var burger = {
         }, condition , cb)
     }
 }
+
+module.exports = burger
